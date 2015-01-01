@@ -32,6 +32,7 @@
 - (IBAction)tableSectionAction:(id)sender
 {
     ChatSectionViewController *tableSectionViewController = [[ChatSectionViewController alloc] init];
+    
     [self.navigationController pushViewController:tableSectionViewController animated:YES];
 }
 - (IBAction)apiSectionAction:(id)sender

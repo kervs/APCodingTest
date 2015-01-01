@@ -2,7 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Jelloween - Machinato Light.ttf">
+            <string>Machinato-Light</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatSectionViewController">
             <connections>
@@ -15,26 +21,63 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bY-Kz-ENX">
-                    <rect key="frame" x="8" y="8" width="88" height="51"/>
-                    <state key="normal" title="Back">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bY-Kz-ENX">
+                    <rect key="frame" x="20" y="28" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="Edb-qt-uJC"/>
+                        <constraint firstAttribute="height" constant="40" id="qXb-Zx-R1e"/>
+                    </constraints>
+                    <state key="normal" image="btn_back">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="backAction:" destination="-1" eventType="touchUpInside" id="1cb-Mh-taT"/>
                     </connections>
                 </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="udg-gG-eTY">
-                    <rect key="frame" x="0.0" y="52" width="320" height="516"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="udg-gG-eTY">
+                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Qfb-t0-gjY"/>
                         <outlet property="delegate" destination="-1" id="Iog-10-8d2"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHAT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMC-cT-Sfs">
+                    <rect key="frame" x="20" y="28" width="280" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="wOX-ol-6kV"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Machinato-Light" family="Machinato" pointSize="20"/>
+                    <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="GMC-cT-Sfs" firstAttribute="leading" secondItem="0bY-Kz-ENX" secondAttribute="trailing" constant="8" symbolic="YES" id="3yC-Ws-ODg"/>
+                <constraint firstItem="0bY-Kz-ENX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="5fh-n3-d5N"/>
+                <constraint firstItem="0bY-Kz-ENX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="20" id="Lgc-y6-e6b"/>
+                <constraint firstAttribute="trailing" secondItem="GMC-cT-Sfs" secondAttribute="trailing" constant="20" symbolic="YES" id="M0k-gl-Mp4"/>
+                <constraint firstAttribute="bottom" secondItem="udg-gG-eTY" secondAttribute="bottom" id="O8i-Lh-NMV"/>
+                <constraint firstAttribute="trailing" secondItem="udg-gG-eTY" secondAttribute="trailing" id="Sc8-2v-iO3"/>
+                <constraint firstItem="udg-gG-eTY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UZk-Dk-5rQ"/>
+                <constraint firstItem="GMC-cT-Sfs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="eRM-Gf-pbw"/>
+                <constraint firstItem="0bY-Kz-ENX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" symbolic="YES" id="uNh-dT-HcA"/>
+                <constraint firstItem="GMC-cT-Sfs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="20" id="xu0-5F-jZz"/>
+                <constraint firstItem="udg-gG-eTY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="y7i-9V-Ioz"/>
+                <constraint firstItem="0bY-Kz-ENX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="zKd-AR-YBu"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="5fh-n3-d5N"/>
+                    <exclude reference="uNh-dT-HcA"/>
+                    <exclude reference="3yC-Ws-ODg"/>
+                </mask>
+            </variation>
         </view>
     </objects>
+    <resources>
+        <image name="btn_back" width="6" height="16"/>
+    </resources>
 </document>
