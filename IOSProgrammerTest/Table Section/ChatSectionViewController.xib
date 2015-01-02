@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatSectionViewController">
             <connections>
+                <outlet property="isLoading" destination="Ttd-t7-C9r" id="SXi-bc-Z9d"/>
                 <outlet property="tableView" destination="udg-gG-eTY" id="c0e-hS-RSA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -51,6 +52,10 @@
                     <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ttd-t7-C9r">
+                    <rect key="frame" x="150" y="274" width="20" height="20"/>
+                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -60,8 +65,10 @@
                 <constraint firstAttribute="trailing" secondItem="GMC-cT-Sfs" secondAttribute="trailing" constant="20" symbolic="YES" id="M0k-gl-Mp4"/>
                 <constraint firstAttribute="bottom" secondItem="udg-gG-eTY" secondAttribute="bottom" id="O8i-Lh-NMV"/>
                 <constraint firstAttribute="trailing" secondItem="udg-gG-eTY" secondAttribute="trailing" id="Sc8-2v-iO3"/>
+                <constraint firstAttribute="centerX" secondItem="Ttd-t7-C9r" secondAttribute="centerX" id="TcN-dp-JjR"/>
                 <constraint firstItem="udg-gG-eTY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UZk-Dk-5rQ"/>
                 <constraint firstItem="GMC-cT-Sfs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="eRM-Gf-pbw"/>
+                <constraint firstAttribute="centerY" secondItem="Ttd-t7-C9r" secondAttribute="centerY" id="mUM-fh-aTy"/>
                 <constraint firstItem="0bY-Kz-ENX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" symbolic="YES" id="uNh-dT-HcA"/>
                 <constraint firstItem="GMC-cT-Sfs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="20" id="xu0-5F-jZz"/>
                 <constraint firstItem="udg-gG-eTY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="y7i-9V-Ioz"/>

@@ -13,6 +13,7 @@
 #define TABLE_CELL_HEIGHT 45.0f
 
 @interface ChatSectionViewController ()
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *isLoading;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *loadedChatData;
 @end
@@ -25,36 +26,47 @@
     
     self.loadedChatData = [[NSMutableArray alloc] init];
     [self loadJSONData];
+    [_isLoading startAnimating];
 }
 
 - (void)loadJSONData
 {
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"chatData" ofType:@"json"];
-
-    NSError *error = nil;
-
-    NSData *rawData = [NSData dataWithContentsOfFile:filePath options:NSDataReadingMappedIfSafe error:&error];
-
-    id JSONData = [NSJSONSerialization JSONObjectWithData:rawData options:NSJSONReadingAllowFragments error:&error];
-
     [self.loadedChatData removeAllObjects];
-    if ([JSONData isKindOfClass:[NSDictionary class]])
-    {
-        NSDictionary *jsonDict = (NSDictionary *)JSONData;
-
-        NSArray *loadedArray = [jsonDict objectForKey:@"data"];
-        if ([loadedArray isKindOfClass:[NSArray class]])
-        {
-            for (NSDictionary *chatDict in loadedArray)
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"chatData" ofType:@"json"];
+        
+        NSError *error = nil;
+        
+        NSData *rawData = [NSData dataWithContentsOfFile:filePath options:NSDataReadingMappedIfSafe error:&error];
+        
+        id JSONData = [NSJSONSerialization JSONObjectWithData:rawData options:NSJSONReadingAllowFragments error:&error];
+        
+        
+        if ([JSONData isKindOfClass:[NSDictionary class]])
+        {   dispatch_async(dispatch_get_main_queue(), ^{
+            NSDictionary *jsonDict = (NSDictionary *)JSONData;
+            
+            NSArray *loadedArray = [jsonDict objectForKey:@"data"];
+            if ([loadedArray isKindOfClass:[NSArray class]])
             {
-                ChatData *chatData = [[ChatData alloc] init];
-                [chatData loadWithDictionary:chatDict];
-                [self.loadedChatData addObject:chatData];
+                for (NSDictionary *chatDict in loadedArray)
+                {
+                    ChatData *chatData = [[ChatData alloc] init];
+                    [chatData loadWithDictionary:chatDict];
+                    [self.loadedChatData addObject:chatData];
+                }
+                [_isLoading stopAnimating];
+                _isLoading.hidden = YES;
+                [self.tableView reloadData];
+                
             }
+        });
         }
-    }
-
-    [self.tableView reloadData];
+    });
+    
+    
 }
 - (void)didReceiveMemoryWarning
 {
@@ -72,6 +84,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     static NSString *cellIdentifier = @"ChatCell";
     ChatCell *cell = nil;
 
@@ -82,9 +95,12 @@
     }
 
     ChatData *chatData = [self.loadedChatData objectAtIndex:[indexPath row]];
-
-    [cell loadWithData:chatData];
-
+    
+    
+  [cell loadWithData:chatData];
+    
+    
+    
     return cell;
 }
 
@@ -97,6 +113,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return TABLE_CELL_HEIGHT;
+    return 100;
 }
 @end

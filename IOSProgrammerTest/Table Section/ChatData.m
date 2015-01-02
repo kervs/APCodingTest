@@ -15,5 +15,17 @@
     self.username = [dict objectForKey:@"username"];
     self.avatar_url = [dict objectForKey:@"avatar_url"];
     self.message = [dict objectForKey:@"message"];
+    
+    NSURL *imageURL = [NSURL URLWithString:_avatar_url];
+    
+    if (imageURL) {
+        NSData *data = [NSData dataWithContentsOfURL:imageURL];
+        
+        self.avatar = [[UIImage alloc]initWithData:data] ;
+    }
+    
+
+
+
 }
 @end
