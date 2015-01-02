@@ -32,7 +32,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tbj-IL-RFt">
-                    <rect key="frame" x="23" y="40" width="6" height="22"/>
+                    <rect key="frame" x="20" y="40" width="6" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="6" id="zjk-oN-59k"/>
                     </constraints>
@@ -101,7 +101,7 @@
                     </variation>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ANIMATION" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKe-ki-H9Z">
-                    <rect key="frame" x="118" y="40" width="116" height="21"/>
+                    <rect key="frame" x="115" y="40" width="116" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="9py-1A-qro"/>
                     </constraints>
@@ -127,7 +127,7 @@
                 <constraint firstAttribute="bottom" secondItem="AHN-4A-WNT" secondAttribute="bottom" id="8Gs-6C-xQ9"/>
                 <constraint firstItem="XGO-Fp-NND" firstAttribute="top" secondItem="OEP-lW-UhT" secondAttribute="bottom" constant="38" id="8TK-pT-FAW"/>
                 <constraint firstItem="AHN-4A-WNT" firstAttribute="centerX" secondItem="OEP-lW-UhT" secondAttribute="centerX" id="9kG-tC-K7H"/>
-                <constraint firstItem="Tbj-IL-RFt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="23" id="CLW-pG-vnL"/>
+                <constraint firstItem="Tbj-IL-RFt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="CLW-pG-vnL"/>
                 <constraint firstAttribute="centerX" secondItem="XGO-Fp-NND" secondAttribute="centerX" id="D31-UT-rN6"/>
                 <constraint firstAttribute="trailing" secondItem="AHN-4A-WNT" secondAttribute="trailing" id="EK3-hN-dmG"/>
                 <constraint firstItem="OEP-lW-UhT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="38" id="Jl7-Tz-lTy"/>

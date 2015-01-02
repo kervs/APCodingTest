@@ -27,7 +27,7 @@
     _passwordTxtField.delegate = self;
 }
 - (IBAction)loginDidPressed:(UIButton *)sender {
-    
+    NSTimeInterval startingTime = [NSDate date].timeIntervalSince1970;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
@@ -35,8 +35,9 @@
                                @"password":_passwordTxtField.text};
     [manager POST:@"http://dev.apppartner.com/AppPartnerProgrammerTest/scripts/login.php" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject[@"code"]);
+        NSTimeInterval endingTime = [NSDate date].timeIntervalSince1970;
         NSString *code = [NSString stringWithFormat:@"%@", responseObject[@"code"]];
-        NSString *message = [NSString stringWithFormat:@"%@", responseObject[@"message"]];
+        NSString *message = [NSString stringWithFormat:@"%@ and it took %f sec", responseObject[@"message"], endingTime - startingTime];
         [self showAlertWith:code andMessage:message];
         
         
