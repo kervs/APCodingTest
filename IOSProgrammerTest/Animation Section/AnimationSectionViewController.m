@@ -50,6 +50,7 @@
     
 }
 
+//when user start to drag finger logo moves as well.
 
 -(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [[event allTouches] anyObject];

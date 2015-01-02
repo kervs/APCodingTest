@@ -36,12 +36,13 @@
     self.loadedChatData = [[NSMutableArray alloc] init];
     [self loadJSONData];
     [_isLoading startAnimating];
+    //I learn about this cool trick witht he help of jackrabbitmobile
     [self setupRefreshControl];
 }
 
 - (void)setupRefreshControl
 {
-    // TODO: Programmatically inserting a UIRefreshControl
+    // Programmatically inserting a UIRefreshControl
      self.refreshControl = [[UIRefreshControl alloc] init];
     
     // Setup the loading view, which will hold the moving graphics
@@ -84,6 +85,7 @@
 - (void)loadJSONData
 {
     [self.loadedChatData removeAllObjects];
+    //made this multithreading becasue it was blocking the main thread when loading up
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
         
@@ -109,9 +111,7 @@
                     [chatData loadWithDictionary:chatDict];
                     [self.loadedChatData addObject:chatData];
                 }
-                [_isLoading stopAnimating];
-                _isLoading.hidden = YES;
-                [self.refreshControl endRefreshing];
+                [self stopAllAnimations];
                 [self.tableView reloadData];
                 
             }
@@ -121,10 +121,20 @@
     
     
 }
+- (void)stopAllAnimations{
+    if (_isLoading) {
+        [_isLoading stopAnimating];
+        _isLoading.hidden = YES;
+    }
+
+    [self.refreshControl endRefreshing];
+    
+}
 - (void)refresh:(id)sender{
     [self.loadedChatData removeAllObjects];
     [self.tableView reloadData];
     
+    //i just put a timer because the data was reloading to fast
     [NSTimer scheduledTimerWithTimeInterval:2.0
                                      target:self
                                    selector:@selector(loadJSONData)
@@ -225,13 +235,10 @@
                          colorIndex = (colorIndex + 1) % colorArray.count;
                      }
                      completion:^(BOOL finished) {
-                         // If still refreshing, keep spinning, else reset
-                         if (self.refreshControl.isRefreshing) {
-                             [self animateRefreshView];
-                         }else{
+                         
                              [self resetAnimation];
                          }
-                     }];
+                     ];
 }
 
 - (void)resetAnimation

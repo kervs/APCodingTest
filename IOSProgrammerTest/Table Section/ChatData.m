@@ -23,8 +23,6 @@
         
         self.avatar = [[UIImage alloc]initWithData:data] ;
     }
-    
-
 
 
 }

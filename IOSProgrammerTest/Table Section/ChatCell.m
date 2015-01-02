@@ -19,7 +19,7 @@
 
 - (void)awakeFromNib
 {
-    // Initialization code
+    // i made the text view not editable because i thought if slowed the user down also i made the profile pic rounded
     self.messageTextView.editable = NO;
     self.profileImageView.layer.cornerRadius = _profileImageView.frame.size.width/1.75;
     self.profileImageView.clipsToBounds = YES;
@@ -27,7 +27,7 @@
 }
 
 - (void)loadWithData:(ChatData *)chatData
-{
+{   //when this method is called item are saved to cell
     self.usernameLabel.text = chatData.username;
     self.messageTextView.text = chatData.message;
     

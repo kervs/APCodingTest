@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
+//i added an extra property because i thould it would be more efficient to change the url into a picture in the model
 @interface ChatData : NSObject
 @property (nonatomic, readwrite) int user_id;
 @property (nonatomic, strong) NSString *username;
