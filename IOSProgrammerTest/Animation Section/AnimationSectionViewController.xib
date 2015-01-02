@@ -2,10 +2,24 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Jelloween - Machinato Bold Italic.ttf">
+            <string>Machinato-BoldItalic</string>
+        </mutableArray>
+        <mutableArray key="Jelloween - Machinato ExtraLight.ttf">
+            <string>Machinato-ExtraLight</string>
+            <string>Machinato-ExtraLight</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnimationSectionViewController">
             <connections>
+                <outlet property="logo" destination="jLl-sh-mto" id="SgY-f8-OWo"/>
+                <outlet property="txtFieldView" destination="Zx3-Vz-Cqn" id="8sa-Mm-kkO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,18 +28,132 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tbj-IL-RFt">
-                    <rect key="frame" x="23" y="16" width="58" height="30"/>
-                    <state key="normal" title="Back">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_animation" translatesAutoresizingMaskIntoConstraints="NO" id="AHN-4A-WNT">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tbj-IL-RFt">
+                    <rect key="frame" x="23" y="40" width="6" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="6" id="zjk-oN-59k"/>
+                    </constraints>
+                    <state key="normal" image="btn_back">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="zjk-oN-59k"/>
+                        </mask>
+                    </variation>
                     <connections>
                         <action selector="backAction:" destination="-1" eventType="touchUpInside" id="smt-Qj-UGc"/>
                     </connections>
                 </button>
+                <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OEP-lW-UhT">
+                    <rect key="frame" x="38" y="131" width="244" height="295"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zx3-Vz-Cqn">
+                            <rect key="frame" x="0.0" y="0.0" width="244" height="108"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="108" id="WbQ-0V-PFv"/>
+                            </constraints>
+                            <string key="text">Animate the App Partner icon. Make it spin around 360 degrees when the spin button is pressed. Allow it to be dragged around the screen by touching and dragging.</string>
+                            <fontDescription key="fontDescription" name="Machinato-ExtraLight" family="Machinato" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Bouns points for creativity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fn-Gv-5mc">
+                            <rect key="frame" x="0.0" y="108" width="244" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Vfp-dD-NTV"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Machinato-BoldItalic" family="Machinato" pointSize="19"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_apppartner" translatesAutoresizingMaskIntoConstraints="NO" id="jLl-sh-mto">
+                            <rect key="frame" x="72" y="171" width="100" height="100"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="jLl-sh-mto" secondAttribute="height" multiplier="100:100" id="UR6-Fv-yrZ"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="jLl-sh-mto" firstAttribute="leading" secondItem="OEP-lW-UhT" secondAttribute="leading" constant="72" id="0Lw-sC-w8C"/>
+                        <constraint firstAttribute="trailing" secondItem="jLl-sh-mto" secondAttribute="trailing" constant="72" id="5bv-9O-XM9"/>
+                        <constraint firstItem="jLl-sh-mto" firstAttribute="top" secondItem="7fn-Gv-5mc" secondAttribute="bottom" constant="22" id="6jI-SU-LH2"/>
+                        <constraint firstAttribute="bottom" secondItem="jLl-sh-mto" secondAttribute="bottom" constant="24" id="9Gg-4Z-lVR"/>
+                        <constraint firstAttribute="trailing" secondItem="7fn-Gv-5mc" secondAttribute="trailing" id="FBO-Wy-Vm3"/>
+                        <constraint firstItem="Zx3-Vz-Cqn" firstAttribute="top" secondItem="OEP-lW-UhT" secondAttribute="top" id="Jfa-KB-w5A"/>
+                        <constraint firstItem="7fn-Gv-5mc" firstAttribute="top" secondItem="Zx3-Vz-Cqn" secondAttribute="bottom" id="NSR-Lq-zDb"/>
+                        <constraint firstItem="Zx3-Vz-Cqn" firstAttribute="leading" secondItem="OEP-lW-UhT" secondAttribute="leading" id="RcS-On-A8T"/>
+                        <constraint firstItem="Zx3-Vz-Cqn" firstAttribute="leading" secondItem="7fn-Gv-5mc" secondAttribute="leading" id="SEi-rZ-xrJ"/>
+                        <constraint firstItem="7fn-Gv-5mc" firstAttribute="centerX" secondItem="jLl-sh-mto" secondAttribute="centerX" id="hFp-fN-HfK"/>
+                        <constraint firstItem="7fn-Gv-5mc" firstAttribute="top" secondItem="Zx3-Vz-Cqn" secondAttribute="bottom" id="nWe-Ae-Aqm"/>
+                        <constraint firstItem="7fn-Gv-5mc" firstAttribute="trailing" secondItem="Zx3-Vz-Cqn" secondAttribute="trailing" id="qoE-xU-PRa"/>
+                        <constraint firstItem="jLl-sh-mto" firstAttribute="centerX" secondItem="7fn-Gv-5mc" secondAttribute="centerX" id="weS-go-7ti"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="hFp-fN-HfK"/>
+                            <exclude reference="6jI-SU-LH2"/>
+                        </mask>
+                    </variation>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ANIMATION" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKe-ki-H9Z">
+                    <rect key="frame" x="118" y="40" width="116" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="9py-1A-qro"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Machinato-ExtraLight" family="Machinato" pointSize="21"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGO-Fp-NND">
+                    <rect key="frame" x="40" y="464" width="241" height="53"/>
+                    <state key="normal" image="btn_spin">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="spinBtnDidPressed:" destination="-1" eventType="touchUpInside" id="npV-ai-l6p"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="XGO-Fp-NND" secondAttribute="centerX" id="0VA-Q9-vkg"/>
+                <constraint firstItem="Tbj-IL-RFt" firstAttribute="baseline" secondItem="AKe-ki-H9Z" secondAttribute="firstBaseline" id="1nM-0J-b1x"/>
+                <constraint firstItem="OEP-lW-UhT" firstAttribute="top" secondItem="AKe-ki-H9Z" secondAttribute="bottom" constant="70" id="6v3-pZ-3Ji"/>
+                <constraint firstAttribute="bottom" secondItem="AHN-4A-WNT" secondAttribute="bottom" id="8Gs-6C-xQ9"/>
+                <constraint firstItem="XGO-Fp-NND" firstAttribute="top" secondItem="OEP-lW-UhT" secondAttribute="bottom" constant="38" id="8TK-pT-FAW"/>
+                <constraint firstItem="AHN-4A-WNT" firstAttribute="centerX" secondItem="OEP-lW-UhT" secondAttribute="centerX" id="9kG-tC-K7H"/>
+                <constraint firstItem="Tbj-IL-RFt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="23" id="CLW-pG-vnL"/>
+                <constraint firstAttribute="centerX" secondItem="XGO-Fp-NND" secondAttribute="centerX" id="D31-UT-rN6"/>
+                <constraint firstAttribute="trailing" secondItem="AHN-4A-WNT" secondAttribute="trailing" id="EK3-hN-dmG"/>
+                <constraint firstItem="OEP-lW-UhT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="38" id="Jl7-Tz-lTy"/>
+                <constraint firstAttribute="trailing" secondItem="AHN-4A-WNT" secondAttribute="trailing" id="ONT-Q6-bNv"/>
+                <constraint firstAttribute="bottom" secondItem="XGO-Fp-NND" secondAttribute="bottom" constant="51" id="abW-za-8uo"/>
+                <constraint firstItem="AKe-ki-H9Z" firstAttribute="baseline" secondItem="Tbj-IL-RFt" secondAttribute="baseline" id="d8I-bj-6pX"/>
+                <constraint firstItem="Tbj-IL-RFt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="dtH-UZ-m7y"/>
+                <constraint firstItem="AKe-ki-H9Z" firstAttribute="leading" secondItem="Tbj-IL-RFt" secondAttribute="trailing" constant="89" id="ee3-9f-dG1"/>
+                <constraint firstAttribute="trailing" secondItem="OEP-lW-UhT" secondAttribute="trailing" constant="38" id="gEm-Bx-Rn7"/>
+                <constraint firstItem="AHN-4A-WNT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="itG-1A-PJd"/>
+                <constraint firstItem="AKe-ki-H9Z" firstAttribute="leading" secondItem="Tbj-IL-RFt" secondAttribute="trailing" constant="88" id="s9s-f8-ae7"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="d8I-bj-6pX"/>
+                    <exclude reference="s9s-f8-ae7"/>
+                    <exclude reference="D31-UT-rN6"/>
+                </mask>
+            </variation>
         </view>
     </objects>
+    <resources>
+        <image name="bg_animation" width="320" height="568"/>
+        <image name="btn_back" width="6" height="16"/>
+        <image name="btn_spin" width="241" height="53"/>
+        <image name="icon_apppartner" width="114" height="108"/>
+    </resources>
 </document>
